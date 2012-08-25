@@ -59,6 +59,10 @@ class User
   field :role, :default => 'user' #admin, moderator, teacher, student, parent, user
 
   # Custom methods
+  def self.current_school
+    Thread.current[:school]
+  end
+
   def role?(role)
     self.role == role.to_s
   end

@@ -1,4 +1,6 @@
 Kayamoyan::Application.routes.draw do
+  resources :subjects
+
   resources :schools
   get "home/index"
 

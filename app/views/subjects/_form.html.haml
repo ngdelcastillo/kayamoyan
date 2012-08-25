@@ -1,0 +1,36 @@
+= form_for @subject, :html => {:class => 'form-horizontal'} do |f|
+  -if @subject.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@subject.errors.count, "error")} prohibited this subject from being saved:"
+      %ul
+        - @subject.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :school, :value => User.current_school
+  .control-group
+    = f.label :name, :class => "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :limit, :class => "control-label"
+    .controls
+      = f.number_field :limit
+  .control-group
+    = f.label :start_at, :class => "control-label"
+    .controls
+      = f.datetime_select :start_at
+  .control-group
+    = f.label :end_at, :class => "control-label"
+    .controls
+      = f.datetime_select :end_at
+  .control-group
+    = f.label :users, 'Teacher',  :class => "control-label"
+    .controls
+      -#= f.collection_select :users, User.where(:role => "Teacher"), :id, :first_name 
+  .control-group
+    = f.label :users, 'Students',  :class => "control-label"
+    .controls
+      -#= f.collection_select :users, User.where(:role => "Student"), :id, :first_name 
+  .form-actions
+    = link_to 'Back', subjects_path, :class => "btn"
+    = f.submit 'Save', :class => "btn btn-primary"

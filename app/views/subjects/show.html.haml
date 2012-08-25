@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @subject.name
+%p
+  %b Limit:
+  = @subject.limit
+%p
+  %b Start at:
+  = @subject.start_at
+%p
+  %b End at:
+  = @subject.end_at
+
+= link_to 'Edit', edit_subject_path(@subject)
+\|
+= link_to 'Back', subjects_path
