@@ -22,6 +22,10 @@
       = f.label :password_confirmation, :class => "control-label"
       .controls
         = f.password_field :password_confirmation, :class => "span3"
+    .control-group
+      = f.label :school, :class => "control-label"
+      .controls
+        = f.collection_select :school, School.all, :id, :name #["Marist","Don Bosco", "UP"]
     .form-actions
       = f.submit "Sign up", :class => "btn btn-primary"
       %button.btn Cancel
