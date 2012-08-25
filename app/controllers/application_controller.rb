@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_current
 
   def set_current
-    Thread.current[:school] = current_user.school.id
+    if user_signed_in?
+      Thread.current[:school] = current_user.school.id
+    end
   end
 end
