@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @school.name
+%p
+  %b Address:
+  = @school.address
+%p
+  %b Phone:
+  = @school.phone
+%p
+  %b Website:
+  = @school.website
+%p
+  %b Sch type:
+  = @school.sch_type
+%p
+  %b Religion:
+  = @school.religion
+
+= link_to 'Edit', edit_school_path(@school)
+\|
+= link_to 'Back', schools_path

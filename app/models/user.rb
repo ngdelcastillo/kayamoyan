@@ -52,6 +52,9 @@ class User
   # field :authentication_token, :type => String
   
   # Custom fields
+  belongs_to :school
+  field :first_name
+  field :last_name
   field :role, :default => 'user' #admin, moderator, teacher, student, parent, user
 
   # Custom methods

@@ -1,4 +1,5 @@
 Kayamoyan::Application.routes.draw do
+  resources :schools
   get "home/index"
 
   devise_for :users
