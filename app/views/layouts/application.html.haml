@@ -25,31 +25,23 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Kayamoyan
+          %a.brand(href="/") Kayamoyan
           .container.nav-collapse
             %ul.nav.pull-right
               - if user_signed_in?
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
+                %li= link_to "School", "/path1"
+                %li= link_to "Class", "/path2"
+                %li= link_to "Grade", "/path2"
                 %li= link_to "Logout", destroy_user_session_path, :method => "delete", :flash => "Sign out user"
               - else
                 %li= link_to "Login", user_session_path
     .container
-
       .content
         .row
-          .span9
-            = bootstrap_flash
-            = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Sidebar
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
-    
+          - if user_signed_in?
+            = render 'private' 
+          - else
+            = render 'public' 
       %footer
         %p &copy; Company 2012
     /

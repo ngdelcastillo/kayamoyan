@@ -1,10 +1,11 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :invitable
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -28,10 +29,19 @@ class User
   field :last_sign_in_ip,    :type => String
 
   ## Confirmable
-  # field :confirmation_token,   :type => String
-  # field :confirmed_at,         :type => Time
-  # field :confirmation_sent_at, :type => Time
-  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  field :confirmation_token,   :type => String
+  field :confirmed_at,         :type => Time
+  field :confirmation_sent_at, :type => Time
+  field :unconfirmed_email,    :type => String # Only if using reconfirmable
+
+  ## Invitable
+  field :invitation_token
+  field :invitation_sent_at,   :type => Time
+  field :invitation_accepted_at,  :type => Time
+  field :invitation_limit, :type => Integer
+  field :invited_by_id
+  field :invited_by_type
+
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
@@ -40,4 +50,12 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  
+  # Custom fields
+  field :role, :default => 'user' #admin, moderator, teacher, student, parent, user
+
+  # Custom methods
+  def role?(role)
+    self.role == role.to_s
+  end
 end
