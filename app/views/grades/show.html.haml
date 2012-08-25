@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Grade:
+  = @grade.grade
+%p
+  %b Quarter:
+  = @grade.quarter
+
+= link_to 'Edit', edit_grade_path(@grade)
+\|
+= link_to 'Back', grades_path

@@ -1,4 +1,6 @@
 Kayamoyan::Application.routes.draw do
+  resources :grades
+
   resources :subjects
 
   resources :schools
