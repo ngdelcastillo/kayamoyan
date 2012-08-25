@@ -26,6 +26,11 @@
       = f.label :school, :class => "control-label"
       .controls
         = f.collection_select :school, School.all, :id, :name #["Marist","Don Bosco", "UP"]
+    
+    .control-group
+      = f.label :role, :class => "control-label"
+      .controls
+        = f.select :role, ["Moderator","Teacher", "Parent", "Student"]
     .form-actions
       = f.submit "Sign up", :class => "btn btn-primary"
       %button.btn Cancel

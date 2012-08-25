@@ -52,7 +52,7 @@ class User
   # field :authentication_token, :type => String
   
   # Custom fields
-  attr_accessible :school, :first_name, :last_name, :email, :password
+  attr_accessible :school, :first_name, :last_name, :email, :password, :role
   belongs_to :school
   field :first_name
   field :last_name
