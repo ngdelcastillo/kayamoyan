@@ -1,28 +1,35 @@
-= form_for @school do |f|
+= form_for(@school, :html => {:class => 'form-horizontal'}) do |f|
   -if @school.errors.any?
     #error_explanation
       %h2= "#{pluralize(@school.errors.count, "error")} prohibited this school from being saved:"
       %ul
         - @school.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :website
-    = f.text_field :website
-  .field
-    = f.label :sch_type
-    = f.text_field :sch_type
-  .field
-    = f.label :religion
-    = f.text_field :religion
-  .actions
-    = f.submit 'Save'
+  
+  .control-group
+    = f.label :name, :class => "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :address, :class => "control-label"
+    .controls
+      = f.text_field :address
+  .control-group
+    = f.label :phone, :class => "control-label"
+    .controls
+      = f.text_field :phone
+  .control-group
+    = f.label :website, :class => "control-label"
+    .controls
+      = f.text_field :website
+  .control-group
+    = f.label :sch_type, :class => "control-label"
+    .controls
+      = f.text_field :sch_type
+  .control-group
+    = f.label :religion, :class => "control-label"
+    .controls
+      = f.text_field :religion
+  .form-actions
+    = link_to 'Back', schools_path, :class => "btn"
+    = f.submit 'Save', :class => "btn btn-primary"
