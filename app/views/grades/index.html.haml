@@ -14,12 +14,12 @@
         %tr
           %td= grade.grade
           %td= grade.quarter
-          %td= link_to 'Show', grade
-          %td= link_to 'Edit', edit_grade_path(grade)
-          %td= link_to 'Destroy', grade, :confirm => 'Are you sure?', :method => :delete
+          %td= link_to 'Show', subject_grade_path(@subject, grade)
+          %td= link_to 'Edit', edit_subject_grade_path(@subject, grade)
+          %td= link_to 'Destroy', subject_grade_path(@subject, grade), :confirm => 'Are you sure?', :method => :delete
 
   - else
     .well
       %p.text-center= t :no_data
   .form-actions
-    = link_to 'New Grades', new_grade_path, :class => 'btn btn-primary'
+    = link_to 'New Grades', new_subject_grade_path, :class => 'btn btn-primary'

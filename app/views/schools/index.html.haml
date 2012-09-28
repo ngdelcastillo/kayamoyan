@@ -13,6 +13,7 @@
           %th
           %th
           %th
+          %th
       %tbody
         - @schools.each do |school|
           %tr
@@ -22,6 +23,7 @@
             %td= school.website
             %td= school.sch_type
             %td= school.religion
+            %td= link_to 'Subjects', subjects_path
             %td= link_to 'Show', school
             %td= link_to 'Edit', edit_school_path(school)
             %td= link_to 'Destroy', school, :confirm => 'Are you sure?', :method => :delete

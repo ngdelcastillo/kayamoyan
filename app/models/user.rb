@@ -52,18 +52,25 @@ class User
   # field :authentication_token, :type => String
   
   # Custom fields
+  before_create :build_association
   attr_accessible :school, :first_name, :last_name, :email, :password, :role
   belongs_to :school
+  has_one :student
   field :first_name
   field :last_name
   field :role, :default => 'user' #admin, moderator, teacher, student, parent, user
 
   # Custom methods
+  def build_association
+    if self.role == "Student"
+      self.create_student
+    end
+  end
   def self.current_school
-    Thread.current[:school]
+    #session[:school]
   end
 
   def role?(role)
-    self.role == role.to_s
+    self.role.downcase == role.to_s.downcase
   end
 end

@@ -1,4 +1,4 @@
-= form_for @grade, :html => {:class => 'form-horizontal'} do |f|
+= form_for [@subject, @grade], :html => {:class => 'form-horizontal'} do |f|
   -if @grade.errors.any?
     #error_explanation
       %h2= "#{pluralize(@grade.errors.count, "error")} prohibited this grade from being saved:"

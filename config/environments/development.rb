@@ -32,7 +32,7 @@ Kayamoyan::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:5000' }
   config.action_mailer.delivery_method = :smtp
   # change to false to prevent email from being sent during development
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
@@ -45,4 +45,12 @@ Kayamoyan::Application.configure do
     user_name: "ngdelcastillo",
     password: "shashaHonko26"
   }
+  # Load Pry for rails console
+  silence_warnings do
+  begin
+    require 'pry'
+    IRB = Pry
+  rescue LoadError
+  end
+end
 end

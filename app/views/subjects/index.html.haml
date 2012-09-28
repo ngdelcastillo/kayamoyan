@@ -11,6 +11,7 @@
           %th
           %th
           %th
+          %th
       %tbody
       - @subjects.each do |subject|
         %tr
@@ -18,6 +19,7 @@
           %td= subject.limit
           %td= subject.start_at
           %td= subject.end_at
+          %td= link_to 'Grades', subject_grades_path(subject)
           %td= link_to 'Show', subject
           %td= link_to 'Edit', edit_subject_path(subject)
           %td= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete

@@ -1,8 +1,8 @@
 class Subject
   include Mongoid::Document
-  has_many :users
-  belongs_to :school
-  embeds_many :grades
+  include Mongoid::Timestamps
+  belongs_to :level
+  has_many :grades
   attr_accessible :users, :school, :name, :limit, :start_at, :end_at, :grades
 
   field :name, type: String

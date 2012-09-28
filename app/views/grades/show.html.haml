@@ -7,6 +7,6 @@
   %b Quarter:
   = @grade.quarter
 
-= link_to 'Edit', edit_grade_path(@grade)
+= link_to 'Edit', edit_subject_grade_path(@subject, @grade)
 \|
-= link_to 'Back', grades_path
+= link_to 'Back', subject_grades_path

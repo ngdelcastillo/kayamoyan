@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_current
     if user_signed_in?
-      Thread.current[:school] = current_user.school.id
+      session[:school] = current_user.school.id
     end
   end
 end

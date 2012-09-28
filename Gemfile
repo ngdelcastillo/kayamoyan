@@ -13,10 +13,14 @@ gem 'haml-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'cancan'
-gem 'quiet_assets', :group => :development
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'omniauth'
 
+group :development do
+  gem 'quiet_assets'
+  gem 'pry'
+end
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

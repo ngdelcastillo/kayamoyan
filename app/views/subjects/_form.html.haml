@@ -6,7 +6,7 @@
         - @subject.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.hidden_field :school, :value => User.current_school
+  = f.hidden_field :school, :value => @school
   .control-group
     = f.label :name, :class => "control-label"
     .controls
