@@ -16,6 +16,7 @@ gem 'cancan'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
 gem 'omniauth'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'quiet_assets'
