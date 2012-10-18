@@ -49,5 +49,5 @@
       Javascripts
       \==================================================
     / Placed at the end of the document so the pages load faster
-    = javascript_include_tag params[:controller].to_param if Kayamoyan::Application.assets.find_asset(params[:controller].to_param + '.js') 
+    -# = javascript_include_tag params[:controller].to_param if Kayamoyan::Application.assets.find_asset(params[:controller].to_param + '.js') 
     = javascript_include_tag "application" 
