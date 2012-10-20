@@ -42,8 +42,8 @@ Kayamoyan::Application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "ngdelcastillo",
-    password: "shashaHonko26"
+    user_name: "",
+    password: ""
   }
   # Load Pry for rails console
   silence_warnings do
